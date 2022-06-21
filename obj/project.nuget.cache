@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5DwdvuJqB/IMSNnyOsEvNrs7Fi5cgyIfNg9I1bbRIFNozZlJFfjJxZlk6qX5nx+s6zXN3/boA3jzSwQUUFd/Ow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\baski\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\AberrantMod\\Aberrant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\baski\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
