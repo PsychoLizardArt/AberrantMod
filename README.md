@@ -4,4 +4,4 @@ Authors: PsychoLizardArt, MrRubixCube
 
 ---
 
-Flavor Text Coming Soon™
+A Terraria mod & passion project.
