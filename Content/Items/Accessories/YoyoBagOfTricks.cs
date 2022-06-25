@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace Aberrant.Content.Items.Accessories
+namespace AberrantMod.Content.Items.Accessories
 {
     public class YoyoBagOfTricks : ModItem //post-golem
     {
