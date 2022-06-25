@@ -32,6 +32,12 @@ TAMs (Tesseract Array Matrices)
 
 ~NPCs~
 
+Toko:
+
+Arka:
+
+Nil:
+
 
 -----+-----
 
