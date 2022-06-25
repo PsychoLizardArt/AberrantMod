@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Items.Accessories
+namespace AberrantMod.Content.Items.Accessories
 {
     public class BloodContract : ModItem
     {
