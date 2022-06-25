@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Aberrant;
 
-namespace Aberrant.Content.Items.Pets
+namespace AberrantMod.Content.Items.Pets
 {
     public class CatsPetBuff : ModBuff
     {
