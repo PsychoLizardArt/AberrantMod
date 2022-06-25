@@ -1,0 +1,15 @@
+~Weapons~
+
+Melee
+
+Ranged
+
+Magic
+
+Summon
+>TAMs (Tesseract Array Matrices) Obtained Post-ML, would probably have similar AI to the Deadly Sphere Staff's summons
+
+--+--
+
+~NPCs~
+
