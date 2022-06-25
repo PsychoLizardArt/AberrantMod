@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Items.Projectiles
+namespace AberrantMod.Content.Items.Projectiles
 {
     public class PentagramRed : ModProjectile
     {
