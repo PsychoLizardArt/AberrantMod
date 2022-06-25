@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Aberrant.Content.Buffs
+namespace AberrantMod.Content.Buffs
 {
     public class FriendlyHex : ModBuff
     {
