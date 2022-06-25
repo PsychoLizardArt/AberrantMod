@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Aberrant.AberrantNPCs.Bosses.TricksterBoss
+namespace AberrantMod.Content.NPCs.Boss.Trickster
 {
     public class TricksterBag : ModItem
     {
