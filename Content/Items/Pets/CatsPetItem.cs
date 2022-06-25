@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Items.Pets
+namespace AberrantMod.Content.Items.Pets
 {
     public class CatsPetItem : ModItem
     {
