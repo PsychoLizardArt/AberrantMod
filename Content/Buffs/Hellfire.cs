@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Buffs
+namespace AberrantMod.Content.Buffs
 {
     public class Hellfire : ModBuff
     {
