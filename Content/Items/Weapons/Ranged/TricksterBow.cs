@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Items.Weapons.Ranged
+namespace AberrantMod.Content.Items.Weapons.Ranged
 {
     public class TricksterBow : ModItem
     {
