@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace Aberrant.Content.Items
+namespace AberrantMod.Content.Items
 {
     public class DevilishRune : ModItem
     {
