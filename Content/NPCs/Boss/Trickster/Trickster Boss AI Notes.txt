@@ -1,0 +1,32 @@
+Trickster AI 
+
+2 phases, swaps between
+
+PHASE 1
+
+Pentagrams with hitboxes circle the player and shoot projectiles.
+Trickster also shoots projectiles, and is immune during this phase
+player must kill all existing pentagrams in order to continue to next phase
+
+PHASE 2 
+
+Trickster is vulnerable, does funny teleporty stuffs
+will teleport to the top left, top right, bottom left, and bottom right of the player to throw projectiles in quick succession
+
+will transition at 66% health back to phase 1
+-1 more pentagram
+
+same with 33% health
+-1 more pentagram
+
+
+
+
+revision
+
+starts vulnerable, then at 66% health spawns in the pentagram minions and becomes immune
+after pentagram minions defeated, becomes vulnerable again
+this happens again at 33% health
+
+or maybe have her do something else at 33% health
+
