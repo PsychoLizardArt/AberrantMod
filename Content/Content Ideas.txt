@@ -4,7 +4,10 @@ Shell Phone
 >Combines the Cell Phone with both the Magic Conch and the Demon Conch
 >Cycles through spawn/left ocean/right ocean/hell with each click /OR/ uses keybinds to go to specific places
 
---+--
+
+
+-----+-----
+
 
 ~Weapons~
 
@@ -18,7 +21,9 @@ Summon:
 TAMs (Tesseract Array Matrices) 
 >Obtained Post-ML, would probably have similar AI to the Deadly Sphere Staff's summons
 
---+--
+
+-----+-----
+
 
 ~NPCs~
 
