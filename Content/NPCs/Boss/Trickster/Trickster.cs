@@ -7,7 +7,7 @@ using System;
 using System.Diagnostics;
 using Aberrant;
 
-namespace Aberrant.AberrantNPCs.Bosses.TricksterBoss
+namespace AberrantMod.Content.NPCs.Boss.Trickster
 {
     [AutoloadBossHead]
 
