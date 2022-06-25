@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Aberrant.Content.Items.Consumables
+namespace AberrantMod.Content.Items.Consumables
 {
     public class MorselSanguine : ModItem
     {
