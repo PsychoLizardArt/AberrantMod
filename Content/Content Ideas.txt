@@ -5,6 +5,11 @@ Shell Phone
 >Cycles through spawn/left ocean/right ocean/hell with each click /OR/ uses keybinds to go to specific places
 
 
+-----+-----
+
+
+~Armor~
+
 
 -----+-----
 
@@ -26,4 +31,10 @@ TAMs (Tesseract Array Matrices)
 
 
 ~NPCs~
+
+
+-----+-----
+
+
+
 
