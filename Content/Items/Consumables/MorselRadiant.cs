@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System;
 
 
-namespace Aberrant.Content.Items.Consumables
+namespace AberrantMod.Content.Items.Consumables
 {
     public class MorselRadiant : ModItem
     {
