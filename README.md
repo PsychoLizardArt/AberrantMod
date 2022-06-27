@@ -1,5 +1,5 @@
 # Aberrant
-### Community Mod for tModLoader
+### Content Mod for tModLoader
 Authors: PsychoLizardArt, MrRubixCube
 
 ---
