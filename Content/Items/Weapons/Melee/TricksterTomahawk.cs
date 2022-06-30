@@ -9,33 +9,33 @@ namespace AberrantMod.Content.Items.Weapons.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bishop");
-
+            Tooltip.SetDefault("A returning tomahawk that passes through blocks");
         }
 
         public override void SetDefaults()
         {
-            item.width = 66;
-            item.height = 58;
-            item.useStyle = 1;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.shootSpeed = 22f;
-            item.knockBack = 2.5f;
-            item.damage = 34;
-            item.rare = 3;
+            Item.width = 66;
+            Item.height = 58;
+            Item.useStyle = 1;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.shootSpeed = 22f;
+            Item.knockBack = 2.5f;
+            Item.damage = 34;
+            Item.rare = 3;
 
-            item.autoReuse = true;
-           
+            Item.autoReuse = true;
 
-            item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.channel = true;
 
-            item.UseSound = SoundID.Item7;
-            item.shoot = mod.ProjectileType("TricksterTomahawkProj");
+            Item.DamageType = DamageClass.Melee;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.channel = true;
 
-            item.value = Item.buyPrice(0, 12, 0, 0);
+            Item.UseSound = SoundID.Item7;
+            Item.shoot = Mod.Find<ModProjectile>("TricksterTomahawkProj").Type;
+
+            Item.value = Item.buyPrice(0, 12, 0, 0);
 
 
             

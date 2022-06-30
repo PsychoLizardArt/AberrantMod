@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,43 +15,42 @@ namespace AberrantMod.Content.Items.Pets
 
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("StellaProj");
-            item.shoot = mod.ProjectileType("MonsterProj");
-            item.shoot = mod.ProjectileType("KingFluffyProj");
+            Item.shoot = Mod.Find<ModProjectile>("StellaProj").Type;
+            Item.shoot = Mod.Find<ModProjectile>("MonsterProj").Type;
+            Item.shoot = Mod.Find<ModProjectile>("KingFluffyProj").Type;
 
-            item.buffType = mod.BuffType("CatsPetBuff");
+            Item.buffType = Mod.Find<ModBuff>("CatsPetBuff").Type;
 
-            item.damage = 0;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.UseSound = SoundID.Item2;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.noMelee = true;
+            Item.damage = 0;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.UseSound = SoundID.Item2;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.noMelee = true;
 
-            item.rare = 2;
-            item.value = Item.buyPrice(0, 5, 0, 0);
+            Item.rare = 2;
+            Item.value = Item.buyPrice(0, 5, 0, 0);
 
-            item.width = 26;
-            item.height = 32;
+            Item.width = 26;
+            Item.height = 32;
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if(player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Tuna, 5);
             recipe.AddIngredient(ItemID.BottledHoney, 5);
             recipe.AddIngredient(ItemID.Bone, 10);
             recipe.AddTile(TileID.CookingPots);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
         

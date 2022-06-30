@@ -9,45 +9,37 @@ namespace AberrantMod.Content.Items.Weapons.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("King");
+            Tooltip.SetDefault("Magically transforms one arrow into three");
             
         }
 
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 70;
-            item.useStyle = 5;
+            Item.width = 40;
+            Item.height = 70;
+            Item.useStyle = 5;
             
-            item.shootSpeed = 25f;
-            item.knockBack = 2f;
-            item.rare = 3;
-            item.useTurn = false;
+            Item.shootSpeed = 25f;
+            Item.knockBack = 2f;
+            Item.rare = 3;
+            Item.useTurn = false;
 
-            item.autoReuse = true;
-            item.noMelee = true;
-            item.UseSound = SoundID.Item101;
-            item.useAnimation = 24;
-            item.useTime = 8;
-            item.reuseDelay = 14;
+            Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.UseSound = SoundID.Item101;
+            Item.useAnimation = 24;
+            Item.useTime = 8;
+            Item.reuseDelay = 14;
+            Item.consumeAmmoOnLastShotOnly = true;
            
 
-            item.damage = 19;
+            Item.damage = 19;
 
-            item.shoot = 10;
-            item.ranged = true;
-            item.useAmmo = AmmoID.Arrow;
+            Item.shoot = 10;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useAmmo = AmmoID.Arrow;
 
-            item.value = Item.buyPrice(0, 12, 0, 0);
+            Item.value = Item.buyPrice(0, 12, 0, 0);
         }
-
-        public override bool ConsumeAmmo(Player player)
-        {
-            // Because of how the game works, player.itemAnimation will be 11, 7, and finally 3. (useAnimation - 1, then - useTime until less than 0.) 
-            // We can get the Clockwork Assault Riffle Effect by not consuming ammo when itemAnimation is lower than the first shot.
-            return !(player.itemAnimation < item.useAnimation - 2);
-        }
-
-        
-        
     }
 }

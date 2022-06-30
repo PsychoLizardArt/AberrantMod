@@ -15,11 +15,11 @@ namespace AberrantMod.Content.Items.Accessories
 
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 36;
-            item.accessory = true;
-            item.value = Item.buyPrice(0, 5, 0, 0);
-            item.rare = 2;
+            Item.width = 34;
+            Item.height = 36;
+            Item.accessory = true;
+            Item.value = Item.buyPrice(0, 5, 0, 0);
+            Item.rare = 2;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

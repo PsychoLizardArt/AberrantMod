@@ -15,11 +15,11 @@ namespace AberrantMod.Content.Items
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 24;
-            item.maxStack = 9999;
-            item.value = 10000;
-            item.rare = 4;
+            Item.width = 24;
+            Item.height = 24;
+            Item.maxStack = 9999;
+            Item.value = 10000;
+            Item.rare = 4;
         }
 
     }
