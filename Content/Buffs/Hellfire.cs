@@ -6,7 +6,7 @@ namespace AberrantMod.Content.Buffs
 {
     public class Hellfire : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Hellfire");
             Description.SetDefault("You are being punished");

@@ -1,7 +1,22 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.GameContent;
+using Terraria.ModLoader.IO;
+using Terraria.Utilities;
+using System;
+using ReLogic.Content;
+using Terraria.GameContent.Personalities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+using System.Collections.Generic;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.DataStructures;
+
 
 namespace AberrantMod.Content.NPCs.Town.Toko
 {
@@ -12,25 +27,42 @@ namespace AberrantMod.Content.NPCs.Town.Toko
 
         public override string Texture
         {
-            get { return "AberrantMod/Content/NPCs/Town/Toko"; } //texture file
+            get { return "AberrantMod/Content/NPCs/Town/Toko/Toko"; } //texture file
         }
 
-        public override bool Autoload(ref string name)
-        {
-            name = "Devil"; //npc title
-            return mod.Properties.Autoload;
-        }
+      
+       
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[npc.type] = 23;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 8;
-            NPCID.Sets.AttackFrameCount[npc.type] = 3;
-            NPCID.Sets.DangerDetectRange[npc.type] = 500;
-            NPCID.Sets.AttackType[npc.type] = 2;
-            NPCID.Sets.AttackTime[npc.type] = 30;
-            NPCID.Sets.AttackAverageChance[npc.type] = 10;
-            NPCID.Sets.HatOffsetY[npc.type] = 0;
+            DisplayName.SetDefault("Devil");
+
+            Main.npcFrameCount[NPC.type] = 23;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 8;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 3;
+
+            NPCID.Sets.DangerDetectRange[NPC.type] = 500;
+            NPCID.Sets.AttackType[NPC.type] = 2;
+            NPCID.Sets.AttackTime[NPC.type] = 30;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 10;
+            NPCID.Sets.HatOffsetY[NPC.type] = 0;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            {
+                Velocity = 1f,
+                Direction = -1
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+
+            NPC.Happiness
+                .SetBiomeAffection<UndergroundBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
+                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Clothier, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Wizard, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Cyborg, AffectionLevel.Hate);
+
         }
 
         
@@ -38,21 +70,31 @@ namespace AberrantMod.Content.NPCs.Town.Toko
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 42;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 42;
 
-            npc.aiStyle = 7;
-            npc.damage = 5;
-            npc.defense = 50;
-            npc.lifeMax = 1800;
-            npc.HitSound = SoundID.NPCHit27;
-            npc.DeathSound = SoundID.NPCDeath30;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.Clothier; //can make custom animaton, search up how
+            NPC.aiStyle = 7;
+            NPC.damage = 5;
+            NPC.defense = 50;
+            NPC.lifeMax = 1800;
+            NPC.HitSound = SoundID.NPCHit27;
+            NPC.DeathSound = SoundID.NPCDeath30;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.Clothier; //can make custom animaton, search up how
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
+            {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
+
+                new FlavorTextBestiaryInfoElement("The Devil appears to be a lizard-like creature afflicted by a demonic curse. He calls himself Toko. Despite his unfriendly appearance, he is here to help you. But his wares seem...strangely suspicious.")
+
+            });
+        }
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) //spawn conditions
         {
             if (NPC.downedBoss1)
@@ -67,15 +109,15 @@ namespace AberrantMod.Content.NPCs.Town.Toko
             return true; //so when a house is available the npc will spawn
         }
 
-        public override string TownNPCName() //npc name (only toko lmao)
+        public override List<string> SetNPCNameList()
         {
-            switch (WorldGen.genRand.Next(1))
+            return new List<string>
             {
-                default:
-                    return "Toko";
-            }
-
+                "Toko",
+            };
         }
+
+    
 
         public override string GetChat() //dialogue options
         {
@@ -126,22 +168,22 @@ namespace AberrantMod.Content.NPCs.Town.Toko
             else
             {
                 Main.npcChatText = "You have my blessing.";
-                Main.LocalPlayer.AddBuff(mod.BuffType("FriendlyHex"), 54000);
-                Main.LocalPlayer.AddBuff(mod.BuffType("Hellfire"), 600);
-                Main.PlaySound(SoundID.Item74);
+                Main.LocalPlayer.AddBuff(Mod.Find<ModBuff>("FriendlyHex").Type, 54000);
+                Main.LocalPlayer.AddBuff(Mod.Find<ModBuff>("Hellfire").Type, 600);
+                SoundEngine.PlaySound(SoundID.Item74);
             
             }
         }
 
         public override void SetupShop(Chest shop, ref int nextSlot) //shop
         {
-            shop.item[nextSlot].SetDefaults(mod.ItemType("MorselRadiant"));
+            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("MorselRadiant").Type);
             nextSlot++;
 
-            shop.item[nextSlot].SetDefaults(mod.ItemType("MorselUmbral"));
+            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("MorselUmbral").Type);
             nextSlot++;
 
-            shop.item[nextSlot].SetDefaults(mod.ItemType("MorselSanguine"));
+            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("MorselSanguine").Type);
             nextSlot++;
 
             shop.item[nextSlot].SetDefaults(ItemID.LifeCrystal);
@@ -154,22 +196,22 @@ namespace AberrantMod.Content.NPCs.Town.Toko
 
             if(Main.bloodMoon)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("BloodContract"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("BloodContract").Type);
                 nextSlot++;
             }
 
             if (NPC.downedBoss3)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("HerbalCluster"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("HerbalCluster").Type);
                 nextSlot++;
 
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TricksterHandbook"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("TricksterHandbook").Type);
                 nextSlot++;
 
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TricksterTomahawk"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("TricksterTomahawk").Type);
                 nextSlot++;
 
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TricksterBow"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("TricksterBow").Type);
                 nextSlot++;
             }
 
@@ -181,9 +223,9 @@ namespace AberrantMod.Content.NPCs.Town.Toko
             }
         }
 
-        public override void NPCLoot()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(npc.getRect(), ItemID.Blindfold); 
+            npcLoot.Add(ItemDropRule.Common(ItemID.Blindfold, 1, 1, 1));
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -209,6 +251,9 @@ namespace AberrantMod.Content.NPCs.Town.Toko
             multiplier = 15f;
             randomOffset = 2f;
         }
+
+        public override bool CanGoToStatue(bool toKingStatue) => true;
+
     }
 }       
         

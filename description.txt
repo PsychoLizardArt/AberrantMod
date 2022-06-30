@@ -1,12 +1,1 @@
-Aberrant is a work-in-progress mod that adds whatever my imagination can think of.
-
-Current features include:
-> 1 Town NPC
-> 2 Weapons
-> 3 Accessories
-> 1 Pet
-> And some QOL items
-
-Planned features include:
-> 1-3 Bosses with related weapons, armor, & accessories
-> TBA
+Aberrant Mod is a pretty cool mod, it does...this. Modify this file with a description of your mod.

@@ -9,17 +9,17 @@ namespace AberrantMod.Content.Items.Consumables
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Exotic Herbal Cluster");
-            Tooltip.SetDefault("<right> to open");
+            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 34;
-            item.maxStack = 9999;
-            item.consumable = true;
-            item.rare = 2;
-            item.value = Item.buyPrice(0, 2, 50, 0);
+            Item.width = 34;
+            Item.height = 34;
+            Item.maxStack = 9999;
+            Item.consumable = true;
+            Item.rare = 2;
+            Item.value = Item.buyPrice(0, 2, 50, 0);
         }
 
         public override bool CanRightClick()
@@ -27,38 +27,39 @@ namespace AberrantMod.Content.Items.Consumables
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void RightClick(Player player) //lol this is broken, ask for rubix's help to fix
         {
+            var entitySource = player.GetSource_OpenItem(Type);
              int dye = (Main.rand.Next(13));
             {
                 switch(dye)
                 {
                     case 0: 
-                        player.QuickSpawnItem(ItemID.RedHusk, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.RedHusk, Main.rand.Next(1, 2)); break;
                     case 1:
-                        player.QuickSpawnItem(ItemID.OrangeBloodroot, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.OrangeBloodroot, Main.rand.Next(1, 2)); break;
                     case 2:
-                        player.QuickSpawnItem(ItemID.YellowMarigold, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.YellowMarigold, Main.rand.Next(1, 2)); break;
                     case 3:
-                        player.QuickSpawnItem(ItemID.LimeKelp, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.LimeKelp, Main.rand.Next(1, 2)); break;
                     case 4:
-                        player.QuickSpawnItem(ItemID.GreenMushroom, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.GreenMushroom, Main.rand.Next(1, 2)); break;
                     case 5:
-                        player.QuickSpawnItem(ItemID.TealMushroom, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.TealMushroom, Main.rand.Next(1, 2)); break;
                     case 6:
-                        player.QuickSpawnItem(ItemID.CyanHusk, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.CyanHusk, Main.rand.Next(1, 2)); break;
                     case 7:
-                        player.QuickSpawnItem(ItemID.SkyBlueFlower, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.SkyBlueFlower, Main.rand.Next(1, 2)); break;
                     case 8:
-                        player.QuickSpawnItem(ItemID.BlueBerries, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.BlueBerries, Main.rand.Next(1, 2)); break;
                     case 9:
-                        player.QuickSpawnItem(ItemID.PurpleMucos, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.PurpleMucos, Main.rand.Next(1, 2)); break;
                     case 10:
-                        player.QuickSpawnItem(ItemID.VioletHusk, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.VioletHusk, Main.rand.Next(1, 2)); break;
                     case 11:
-                        player.QuickSpawnItem(ItemID.PinkPricklyPear, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.PinkPricklyPear, Main.rand.Next(1, 2)); break;
                     default: 
-                        player.QuickSpawnItem(ItemID.BlackInk, Main.rand.Next(1, 2)); break;
+                        player.QuickSpawnItem(entitySource, ItemID.BlackInk, Main.rand.Next(1, 2)); break;
                 }
             } 
 
@@ -69,13 +70,13 @@ namespace AberrantMod.Content.Items.Consumables
                     switch(strange)
                     {
                         case 0:
-                            player.QuickSpawnItem(ItemID.StrangePlant1, Main.rand.Next(1, 2)); break;
+                            player.QuickSpawnItem(entitySource, ItemID.StrangePlant1, Main.rand.Next(1, 2)); break;
                         case 1:
-                            player.QuickSpawnItem(ItemID.StrangePlant2, Main.rand.Next(1, 2)); break;
+                            player.QuickSpawnItem(entitySource, ItemID.StrangePlant2, Main.rand.Next(1, 2)); break;
                         case 2:
-                            player.QuickSpawnItem(ItemID.StrangePlant3, Main.rand.Next(1, 2)); break;
+                            player.QuickSpawnItem(entitySource, ItemID.StrangePlant3, Main.rand.Next(1, 2)); break;
                         default:
-                            player.QuickSpawnItem(ItemID.StrangePlant4, Main.rand.Next(1, 2)); break;
+                            player.QuickSpawnItem(entitySource, ItemID.StrangePlant4, Main.rand.Next(1, 2)); break;
                     }
                 }
             }

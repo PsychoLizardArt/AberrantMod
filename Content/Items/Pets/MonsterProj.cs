@@ -9,20 +9,20 @@ namespace AberrantMod.Content.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Monster");
-            Main.projFrames[projectile.type] = 2;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 2;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BabyEater);
-            base.aiType = ProjectileID.BabyEater;
+            Projectile.CloneDefaults(ProjectileID.BabyEater);
+            base.AIType = ProjectileID.BabyEater;
             //base.drawOriginOffsetY = 0;
 
-            projectile.height = 46;
-            projectile.width = 40;
+            Projectile.height = 46;
+            Projectile.width = 40;
 
-            projectile.scale = 1f;
+            Projectile.scale = 1f;
 
             /*projectile.width = 46;
             projectile.height = 40;
@@ -37,22 +37,19 @@ namespace AberrantMod.Content.Items.Pets
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             player.eater = false;
             return true;
         }
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
-            AberrantModPlayer modPlayer = player.GetModPlayer<AberrantModPlayer>();
-            if (player.dead)
+            Player player = Main.player[Projectile.owner];
+
+            if (!player.dead && player.HasBuff(ModContent.BuffType<CatsPetBuff>()))
             {
-                modPlayer.catsPet = false;
+                Projectile.timeLeft = 2;
             }
-            if (modPlayer.catsPet)
-            {
-                projectile.timeLeft = 2;
-            }
+
         }
 
     }

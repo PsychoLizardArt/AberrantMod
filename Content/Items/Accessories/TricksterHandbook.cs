@@ -16,11 +16,11 @@ namespace AberrantMod.Content.Items.Accessories
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 30;
-            item.accessory = true;
-            item.value = Item.buyPrice(0, 10, 0, 0);
-            item.rare = 2;
+            Item.width = 32;
+            Item.height = 30;
+            Item.accessory = true;
+            Item.value = Item.buyPrice(0, 10, 0, 0);
+            Item.rare = 2;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -28,7 +28,7 @@ namespace AberrantMod.Content.Items.Accessories
             player.moveSpeed += 0.1f;
             player.runAcceleration += 0.1f;
             player.noKnockback = true;
-            player.meleeDamage += 0.05f;
+            player.GetDamage(DamageClass.Melee) += 0.05f;
         }
     }
 }

@@ -9,20 +9,20 @@ namespace AberrantMod.Content.Items.Weapons.Melee
   
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(301);
-            aiType = 301;
+            Projectile.CloneDefaults(301);
+            AIType = 301;
 
-            projectile.width = 44;
-            projectile.height = 44;
+            Projectile.width = 44;
+            Projectile.height = 44;
 
-            projectile.aiStyle = 3;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.melee = true;
-            projectile.scale = 1f;
+            Projectile.aiStyle = 3;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.scale = 1f;
 
-            projectile.extraUpdates = 2;
-            projectile.tileCollide = false;
+            Projectile.extraUpdates = 2;
+            Projectile.tileCollide = false;
 
           
         }

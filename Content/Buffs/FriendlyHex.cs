@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
+
 
 namespace AberrantMod.Content.Buffs
 {
@@ -8,20 +10,17 @@ namespace AberrantMod.Content.Buffs
     {
 
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Friendly Hex");
-            Description.SetDefault("10% increased movement speed and 5% increased damage");
+            Description.SetDefault("Slightly increased movement speed and damage");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.meleeDamage += 0.05f;
-            player.rangedDamage += 0.05f;
-            player.magicDamage += 0.05f;
-            player.minionDamage += 0.05f;
-            player.thrownDamage += 0.05f;
+            player.GetDamage(DamageClass.Generic) += 0.05f;
             player.moveSpeed += 0.1f;
+            player.runAcceleration += 0.1f;
         }
     }
 }

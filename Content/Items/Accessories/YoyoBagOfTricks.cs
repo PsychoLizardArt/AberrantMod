@@ -20,24 +20,23 @@ namespace AberrantMod.Content.Items.Accessories
 
         public override void SetDefaults()
         {
-            item.width = 42;
-            item.height = 44;
-            item.accessory = true;
-            item.value = Item.buyPrice(0, 20, 0, 0);
-            item.rare = 7;
+            Item.width = 42;
+            Item.height = 44;
+            Item.accessory = true;
+            Item.value = Item.buyPrice(0, 20, 0, 0);
+            Item.rare = 7;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.YoyoBag, 1);
             recipe.AddIngredient(ItemID.MasterNinjaGear, 1);
-            recipe.AddIngredient(mod.ItemType("TricksterHandbook"), 1);
+            recipe.AddIngredient(Mod.Find<ModItem>("TricksterHandbook").Type, 1);
             recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
             recipe.AddIngredient(ItemID.BeetleHusk, 8);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override void UpdateEquip(Player player)
@@ -54,7 +53,7 @@ namespace AberrantMod.Content.Items.Accessories
             player.blackBelt = true;
             player.moveSpeed += 0.1f;
             player.runAcceleration += 0.1f;
-            player.meleeDamage += 0.1f;
+            player.GetDamage(DamageClass.Melee) += 0.1f;
         }
     }
 }

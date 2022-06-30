@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Aberrant;
+using AberrantMod;
 
 namespace AberrantMod.Content.Items.Pets
 {
@@ -10,25 +10,25 @@ namespace AberrantMod.Content.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Stella");
-            Main.projFrames[projectile.type] = 1;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 1;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.CompanionCube);
-            base.aiType = ProjectileID.CompanionCube;
-            base.drawOriginOffsetY = 2;
+            Projectile.CloneDefaults(ProjectileID.CompanionCube);
+            base.AIType = ProjectileID.CompanionCube;
+            base.DrawOriginOffsetY = 2;
 
-            projectile.width = 46;
-            projectile.height = 38;
+            Projectile.width = 46;
+            Projectile.height = 38;
 
-            projectile.scale = 1f;
+            Projectile.scale = 1f;
 
-            projectile.ignoreWater = true;
+            Projectile.ignoreWater = true;
         
 
-            projectile.friendly = true;
+            Projectile.friendly = true;
 
 
           /*  projectile.penetrate = -1;
@@ -44,26 +44,23 @@ namespace AberrantMod.Content.Items.Pets
         
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             player.companionCube = false;
             return true;
         }
 
-      
+
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
-            AberrantModPlayer modPlayer = player.GetModPlayer<AberrantModPlayer>();
-            if (player.dead)
+            Player player = Main.player[Projectile.owner];
+
+            if (!player.dead && player.HasBuff(ModContent.BuffType<CatsPetBuff>()))
             {
-                modPlayer.catsPet = false;
+                Projectile.timeLeft = 2;
             }
-            if (modPlayer.catsPet)
-            {
-                projectile.timeLeft = 2;
-            }
+
         }
 
-       
+
     }
 }

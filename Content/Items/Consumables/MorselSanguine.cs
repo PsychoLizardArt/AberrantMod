@@ -8,16 +8,16 @@ namespace AberrantMod.Content.Items.Consumables
     {
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.maxStack = 9999;
-            item.rare = 2;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.useStyle = 2;
-            item.UseSound = SoundID.Item2;
-            item.consumable = true;
-            item.value = Item.buyPrice(0, 10, 0, 0);
+            Item.width = 18;
+            Item.height = 18;
+            Item.maxStack = 9999;
+            Item.rare = 2;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.useStyle = 2;
+            Item.UseSound = SoundID.Item2;
+            Item.consumable = true;
+            Item.value = Item.buyPrice(0, 10, 0, 0);
         }
 
         public override void SetStaticDefaults()
@@ -34,7 +34,7 @@ namespace AberrantMod.Content.Items.Consumables
             return false;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             Main.bloodMoon = true;
             Main.NewText("The Blood Moon is rising...", 50, 255, 130);
