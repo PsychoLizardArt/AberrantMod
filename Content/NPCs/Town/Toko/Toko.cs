@@ -58,9 +58,8 @@ namespace AberrantMod.Content.NPCs.Town.Toko
                 .SetBiomeAffection<UndergroundBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<DesertBiome>(AffectionLevel.Like)
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
-                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Guide, AffectionLevel.Love)
                 .SetNPCAffection(NPCID.Clothier, AffectionLevel.Like)
-                .SetNPCAffection(NPCID.Wizard, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.Cyborg, AffectionLevel.Hate);
 
         }
