@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\baski\\Documents\\GitHub\\AberrantMod\\AberrantMod.csproj": {}
+    "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\AberrantMod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\baski\\Documents\\GitHub\\AberrantMod\\AberrantMod.csproj": {
+    "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\AberrantMod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\baski\\Documents\\GitHub\\AberrantMod\\AberrantMod.csproj",
+        "projectUniqueName": "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\AberrantMod.csproj",
         "projectName": "AberrantMod",
-        "projectPath": "C:\\Users\\baski\\Documents\\GitHub\\AberrantMod\\AberrantMod.csproj",
+        "projectPath": "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\AberrantMod.csproj",
         "packagesPath": "C:\\Users\\baski\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\baski\\Documents\\GitHub\\AberrantMod\\obj\\",
+        "outputPath": "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
