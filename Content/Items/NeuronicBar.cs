@@ -1,0 +1,31 @@
+using Terraria;
+using Terraria.ModLoader;
+using Terraria.ID;
+
+namespace AberrantMod.Content.Items;
+
+public class NeuronicBar : ModItem
+{
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("Neuronic Bar");
+        // Tooltip.SetDefault("It's a grotesquely mutated metal");
+    }
+    public override void SetDefaults()
+    {
+        Item.width = 30;
+        Item.height = 24;
+        Item.maxStack = 9999;
+        Item.value = Item.sellPrice(silver:50);
+        Item.rare = ItemRarityID.Blue;
+    }
+    public override void AddRecipes()
+    {
+        CreateRecipe(1).AddIngredient(ItemID.CrimtaneBar, 1).AddIngredient<AmberNeuron>(1)
+            .AddTile(TileID.Anvils)
+            .Register();
+        CreateRecipe(1).AddIngredient(ItemID.DemoniteBar, 1).AddIngredient<AmberNeuron>(1)
+            .AddTile(TileID.Anvils)
+            .Register();
+    }
+}

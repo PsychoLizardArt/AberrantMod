@@ -1,45 +1,39 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
+using Microsoft.Xna.Framework;
 
-namespace AberrantMod.Content.Items.Weapons.Melee
+namespace AberrantMod.Content.Items.Weapons.Melee;
+public class TricksterTomahawk : ModItem
 {
-    public class TricksterTomahawk : ModItem
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bishop");
-            Tooltip.SetDefault("A returning tomahawk that passes through blocks");
-        }
+        // DisplayName.SetDefault("Bishop");
+    }
+    public override void SetDefaults()
+    {
+        Item.width = 48;
+        Item.height = 42;
 
-        public override void SetDefaults()
-        {
-            Item.width = 66;
-            Item.height = 58;
-            Item.useStyle = 1;
-            Item.useAnimation = 20;
-            Item.useTime = 20;
-            Item.shootSpeed = 22f;
-            Item.knockBack = 2.5f;
-            Item.damage = 34;
-            Item.rare = 3;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.UseSound = SoundID.Item1 with { Pitch = 0.5f, PitchVariance = 0.1f };
 
-            Item.autoReuse = true;
+        Item.DamageType = DamageClass.Melee;
+        Item.damage = 34;
+        Item.knockBack = 5f;
+        Item.useTime = 15;
+        Item.useAnimation = 15;
+        Item.autoReuse = true;
+        Item.useTurn = false;
+        Item.reuseDelay = 5;
 
+        Item.noMelee = true;
+        Item.noUseGraphic = true;
 
-            Item.DamageType = DamageClass.Melee;
-            Item.noMelee = true;
-            Item.noUseGraphic = true;
-            Item.channel = true;
+        Item.shoot = Mod.Find<ModProjectile>("TricksterTomahawkProjectile").Type;
+        Item.shootSpeed = 10f;
 
-            Item.UseSound = SoundID.Item7;
-            Item.shoot = Mod.Find<ModProjectile>("TricksterTomahawkProj").Type;
-
-            Item.value = Item.buyPrice(0, 12, 0, 0);
-
-
-            
-        }
-
+        Item.rare = ItemRarityID.Orange;
+        //Item.value = Item.sellPrice(gold: 12);
     }
 }

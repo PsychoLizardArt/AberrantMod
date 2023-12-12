@@ -1,0 +1,37 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+
+namespace AberrantMod.Content.Items.Pets.CatsPet;
+public class KingFluffy : ModProjectile
+{
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("King Fluffy");
+        Main.projFrames[Projectile.type] = 10;
+        Main.projPet[Projectile.type] = true;
+    }
+    public override void SetDefaults()
+    {
+        Projectile.CloneDefaults(398);
+        AIType = 398;
+        DrawOriginOffsetY = 2;
+        Projectile.scale = 1f;
+        Projectile.width = 58;
+        Projectile.height = 38;
+    }
+    public override bool PreAI()
+    {
+        Main.player[Projectile.owner].miniMinotaur = false;
+        return true;
+    }
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+        if (!player.dead && player.HasBuff(ModContent.BuffType<CatsPetBuff>()))
+        {
+            Projectile.timeLeft = 2;
+        }
+    }
+}

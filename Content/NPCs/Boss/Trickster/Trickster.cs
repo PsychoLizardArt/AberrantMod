@@ -1,0 +1,106 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.DataStructures;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
+using Microsoft.Xna.Framework;
+using AberrantMod.Content.Items.BossBags;
+
+namespace AberrantMod.Content.NPCs.Boss.Trickster;
+[AutoloadBossHead]
+public class Trickster : ModNPC
+{
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("The Trickster");
+        Main.npcFrameCount[NPC.type] = 6;
+
+        NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+        NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
+        {
+            SpecificallyImmuneTo = new int[]
+            {
+                BuffID.Poisoned, BuffID.Confused
+            }
+        };
+    }
+    public override void SetDefaults()
+    {
+        NPC.netAlways = true;
+
+        NPC.width = 80;
+        NPC.height = 110;
+
+        NPC.boss = true;
+        NPC.aiStyle = -1;
+        NPC.npcSlots = 6f;
+
+        NPC.lifeMax = 1000;
+        NPC.damage = 20;
+        NPC.defense = 10;
+        NPC.knockBackResist = 0f;
+
+        NPC.lavaImmune = true;
+        NPC.noTileCollide = true;
+        NPC.noGravity = true;
+
+        NPC.value = Item.buyPrice(gold: 10);
+
+        NPC.HitSound = SoundID.NPCHit1;
+        NPC.DeathSound = SoundID.NPCDeath1;
+        Music = MusicID.Dungeon; 
+    }
+    public override void BossLoot(ref string name, ref int potionType)
+    {
+        potionType = ItemID.RestorationPotion;
+    }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * balance);
+        NPC.damage = (int)(NPC.damage * 1.3f);
+    }
+    public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+    {
+        cooldownSlot = ImmunityCooldownID.Bosses; // use the boss immunity cooldown counter, to prevent ignoring boss attacks by taking damage from other sources
+        return true;
+    }
+    public override void FindFrame(int frameHeight)
+    {
+       
+    }
+    private int ai;
+    private bool axeThrow1;
+    private bool axeThrow2;
+    private bool axeThrow3;
+    private bool dash;
+    public override void AI()
+    {
+        //gets player & target vector
+        NPC.TargetClosest(true);
+        Player player = Main.player[NPC.target];
+        Vector2 target = NPC.HasPlayerTarget ? player.Center : Main.npc[NPC.target].Center;
+
+        NPC.spriteDirection = NPC.direction;
+
+        //health will never be above max
+        if (NPC.life >= NPC.lifeMax) { NPC.life = NPC.lifeMax; }
+
+        //despawns NPC
+        if (NPC.target < 0 || NPC.target == 255 || player.dead || !player.active)
+        {
+            NPC.TargetClosest(false);
+            NPC.direction = 1;
+            NPC.velocity.Y = NPC.velocity.Y - 0.1f;
+            if (NPC.timeLeft > 20) { NPC.timeLeft = 20; return; }
+        }
+
+        if (axeThrow1)
+        {
+
+        }
+
+
+    }
+}

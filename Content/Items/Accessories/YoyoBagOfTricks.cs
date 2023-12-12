@@ -3,57 +3,46 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace AberrantMod.Content.Items.Accessories
+namespace AberrantMod.Content.Items.Accessories;
+public class YoyoBagOfTricks : ModItem //post-golem
 {
-    public class YoyoBagOfTricks : ModItem //post-golem
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Yoyo Bag of Tricks");
-            Tooltip.SetDefault("Gives the user master yoyo skills" +
-                                "\nAllows the ability to climb walls and dash" +
-                                "\nGives a chance to dodge attacks" +
-                                "\nGrants immunity to knockback" +
-                                "\n10% increased movement speed" +
-                                "\n10% increased melee damage");
-        }
-
-        public override void SetDefaults()
-        {
-            Item.width = 42;
-            Item.height = 44;
-            Item.accessory = true;
-            Item.value = Item.buyPrice(0, 20, 0, 0);
-            Item.rare = 7;
-        }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.YoyoBag, 1);
-            recipe.AddIngredient(ItemID.MasterNinjaGear, 1);
-            recipe.AddIngredient(Mod.Find<ModItem>("TricksterHandbook").Type, 1);
-            recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
-            recipe.AddIngredient(ItemID.BeetleHusk, 8);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-        }
-
-        public override void UpdateEquip(Player player)
-        {
-            player.dash = 1;
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.counterWeight = ProjectileID.BlackCounterweight + Main.rand.Next(6);
-            player.yoyoGlove = true;
-            player.yoyoString = true;
-            player.noKnockback = true;
-            player.blackBelt = true;
-            player.moveSpeed += 0.1f;
-            player.runAcceleration += 0.1f;
-            player.GetDamage(DamageClass.Melee) += 0.1f;
-        }
+        // DisplayName.SetDefault("Yoyo Bag of Tricks");
+        // Tooltip.SetDefault("Gives the user master yoyo skills" + "\nAllows the ability to climb walls and dash" + "\nGives a chance to dodge attacks" +  "\nGrants immunity to knockback" + "\n10% increased movement speed" + "\n10% increased melee damage");
+    }
+    public override void SetDefaults()
+    {
+        Item.width = 42;
+        Item.height = 44;
+        Item.accessory = true;
+        Item.value = Item.buyPrice(0, 20, 0, 0);
+        Item.rare = ItemRarityID.Lime;
+    }
+    public override void AddRecipes()
+    {
+        CreateRecipe(1)
+        .AddIngredient(ItemID.YoyoBag, 1)
+        .AddIngredient(ItemID.MasterNinjaGear, 1)
+        .AddIngredient(Mod.Find<ModItem>("TricksterHandbook").Type, 1)
+        .AddIngredient(ItemID.BrokenHeroSword, 1)
+        .AddIngredient(ItemID.BeetleHusk, 8)
+        .AddTile(TileID.MythrilAnvil)
+        .Register();
+    }
+    public override void UpdateEquip(Player player)
+    {
+        player.dash = 1;
+    }
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        player.counterWeight = ProjectileID.BlackCounterweight + Main.rand.Next(6);
+        player.yoyoGlove = true;
+        player.yoyoString = true;
+        player.noKnockback = true;
+        player.blackBelt = true;
+        player.moveSpeed += 0.1f;
+        player.runAcceleration += 0.1f;
+        player.GetDamage(DamageClass.Melee) += 0.1f;
     }
 }

@@ -1,0 +1,61 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.Audio;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+
+namespace AberrantMod.Content.Items.Weapons.Ranged;
+public class RoyalThunder : ModItem
+{
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("Royal Thunder");
+    }
+    public override void SetDefaults()
+    {
+        Item.width = 98;
+        Item.height = 38;
+
+        Item.useStyle = ItemUseStyleID.Shoot;
+        Item.UseSound = SoundID.Item41 with { Volume = 0.5f };
+
+        Item.DamageType = DamageClass.Ranged;
+        Item.damage = 50;
+        Item.knockBack = 5f;
+        Item.useTime = 5;
+        Item.useAnimation = 5;
+        Item.autoReuse = true;
+        Item.reuseDelay = 1;
+
+        Item.noMelee = true;
+
+        Item.useAmmo = AmmoID.Bullet;
+        Item.shoot = 10;
+        Item.shootSpeed = 35f;
+
+        Item.rare = ItemRarityID.Lime;
+        //Item.value = ;
+    }
+    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+    {
+        velocity = Utils.RotatedByRandom(velocity, (double)MathHelper.ToRadians(4f));
+        Vector2 muzzleOffset = Vector2.Normalize(velocity) * 38f;
+        if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+        {
+            position += muzzleOffset;
+        }
+    }
+    public override bool CanConsumeAmmo(Item ammo, Player player)
+    {
+        return Utils.NextFloat(Main.rand) >= 0.2f;
+    }
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        SoundEngine.PlaySound(SoundID.Thunder with { Volume = 0.5f, Pitch = 0.2f, Type = 0 }, target.position);
+        return;
+    }
+    public override Vector2? HoldoutOffset()
+    {
+        return new Vector2(-8f, 2f);
+    }
+}

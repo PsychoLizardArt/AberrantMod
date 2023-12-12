@@ -1,0 +1,25 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+
+namespace AberrantMod.Content.Items.Weapons.Summon;
+public class TricksterWhip : ModItem
+{
+    public override void SetStaticDefaults()
+    {
+        DisplayName.SetDefault("");
+    }
+    public override void SetDefaults()
+    {
+        Item.DefaultToWhip(ModContent.ProjectileType<TricksterWhipProjectile>(),);
+
+        Item.shootSpeed = 1;
+        Item.rare = ItemRarityID.Orange;
+        Item.channel = true;
+    }
+    public override bool MeleePrefix()
+    {
+        return true;
+    }
+}

@@ -1,0 +1,33 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AberrantMod.Content.Items.Armor.WatchfulArmor;
+[AutoloadEquip(EquipType.Legs)]
+public class WatchfulGreaves : ModItem
+{
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("Watchful Greaves");
+        // Tooltip.SetDefault("5% increased movement speed\n5% increased jump speed");
+        ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
+    }
+    public override void SetDefaults()
+    {
+        Item.width = 18;
+        Item.height = 12;
+        Item.defense = 4;
+        Item.rare = ItemRarityID.Blue;
+        //Item.value = Item.sellPrice();
+    }
+    public override void UpdateEquip(Player player)
+    {
+        player.jumpSpeedBoost += 0.05f;
+        player.moveSpeed += 0.05f;
+    }
+    public override void AddRecipes()
+    {
+        CreateRecipe(1).AddIngredient<NeuronicBar>(8).AddTile(TileID.Anvils)
+            .Register();
+    }
+}

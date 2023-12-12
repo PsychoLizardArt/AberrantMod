@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qrhrnng2v+PelAmacdh09Ocw+FHgon0mJjusQPOO8xitSeOBRfAbRIZIJNXTLCxr08kp+yT5Wxzn1G8OIuvcpg==",
+  "dgSpecHash": "Z8ARUh5S8BOahM2reQEVKFuhHC4aXnuDCfoWAsMmAS6VTXs3dkDte2FdJ+pAT9AoTVhJ4onBElduKR6hQIcbJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\baski\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AberrantMod\\AberrantMod.csproj",
+  "projectFilePath": "C:\\Users\\baski\\source\\repos\\PsychoLizardArt\\AberrantMod\\AberrantMod.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\baski\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
   ],

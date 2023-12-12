@@ -1,0 +1,233 @@
+Projectiles: {
+	TricksterWhipProjectile.DisplayName: Trickster Whip Projectile
+	TricksterTomahawkProjectile.DisplayName: Trickster Tomahawk Projectile
+	ReaperTomeProjectile.DisplayName: Reaper Tome Projectile
+	Stella.DisplayName: Stella
+	Monster.DisplayName: Monster
+	KingFluffy.DisplayName: King Fluffy
+	TricksterTomahawkProjectileHostile.DisplayName: Trickster Tomahawk Projectile Hostile
+}
+
+NPCs: {
+	Toko: {
+		TownNPCMood: {
+			Princess_LovesNPC: I like {NPCName}.
+			LikeNPC_Princess: I like {NPCName}.
+			HateNPC: I hate {NPCName}.
+			LikeNPC: I like {NPCName}.
+			HateBiome: I hate {BiomeName}.
+			LikeBiome: I like {BiomeName}.
+			LoveBiome: I love {BiomeName}.
+			HateCrowded: I hate how crowded I am.
+			DislikeCrowded: I dislike how crowded I am.
+			LoveSpace: I love having so much space.
+			FarFromHome: I am too far from home.
+			NoHome: I hate not having a home.
+			Content: I am content.
+		}
+
+		DisplayName: Half-Devil
+	}
+
+	WatchfulProbe.DisplayName: Watchful Probe
+	Trickster.DisplayName: The Trickster
+}
+
+Items: {
+	TricksterWhip: {
+		Tooltip:
+			'''
+			A short but incredibly fast whip
+			'The Trickster's tail is yours to wield'
+			'''
+		DisplayName: Fool's Tail
+	}
+
+	TricksterBow: {
+		Tooltip:
+			'''
+			Transforms one arrow into three
+			'A bow crafted from the Trickster's mask'
+			'''
+		DisplayName: Harlequin Bow
+	}
+
+	RoyalThunder: {
+		Tooltip: ""
+		DisplayName: Royal Thunder
+	}
+
+	WatchfulClaw: {
+		Tooltip: ""
+		DisplayName: Phaser Blades
+	}
+
+	TricksterTomahawk: {
+		Tooltip:
+			'''
+			You can juggle flaming axes
+			'The Trickster gifts her weapon to you'
+			'''
+		DisplayName: Juggler's Hatchet
+	}
+
+	ReaperTome: {
+		Tooltip: Conjures a flying scythe to follow your cursor
+		DisplayName: Dark Mage Scythe
+	}
+
+	CatsPetItem: {
+		Tooltip: ""
+		DisplayName: Cats Pet Item
+	}
+
+	NeuronicBar: {
+		Tooltip: ""
+		DisplayName: Neuronic Bar
+	}
+
+	GougedOcular: {
+		Tooltip: ""
+		DisplayName: Gouged Ocular
+	}
+
+	DevilishRune: {
+		Tooltip: ""
+		DisplayName: Devilish Rune
+	}
+
+	MorselUmbral: {
+		Tooltip:
+			'''
+			Sets time to night upon consumption
+			'A gouged eyeball as black as night'
+			'''
+		DisplayName: Umbral Morsel
+	}
+
+	MorselSanguine: {
+		Tooltip:
+			'''
+			Summons the Blood Moon upon consumption
+			'A gouged eyeball soaked in blood'
+			'''
+		DisplayName: Sanguine Morsel
+	}
+
+	MorselRadiant: {
+		Tooltip:
+			'''
+			Sets time to day upon consumption
+			'A gouged eyeball beaming with light'
+			'''
+		DisplayName: Radiant Morsel
+	}
+
+	HerbalCluster: {
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+		DisplayName: Herbal Cluster
+	}
+
+	WatchfulProbeBag: {
+		Tooltip: ""
+		DisplayName: Watchful Probe Bag
+	}
+
+	TricksterBag: {
+		Tooltip: ""
+		DisplayName: Trickster Bag
+	}
+
+	WatchfulVisageSummon: {
+		Tooltip: 10% increased minion damage
+		DisplayName: Watchful Herald Visage
+	}
+
+	WatchfulVisageRanged: {
+		Tooltip: 10% increased ranged damage
+		DisplayName: Watchful Agent Visage
+	}
+
+	WatchfulVisageMelee: {
+		Tooltip: 10% increased melee damage
+		DisplayName: Watchful Sentry Visage
+	}
+
+	WatchfulVisageMagic: {
+		Tooltip: 10% increased magic damage
+		DisplayName: Watchful Cultist Visage
+	}
+
+	WatchfulGreaves: {
+		Tooltip:
+			'''
+			5% increased movement speed
+			5% increased jump speed
+			'''
+		DisplayName: Watchful Greaves
+	}
+
+	WatchfulAegis: {
+		Tooltip: Slowly regenerates life
+		DisplayName: Watchful Aegis
+	}
+
+	AmberNeuron: {
+		Tooltip: ""
+		DisplayName: Amber Neuron
+	}
+
+	YoyoBagOfTricks: {
+		Tooltip:
+			'''
+			Gives the user master yoyo skills
+			Allows the ability to climb walls and dash
+			Gives a chance to dodge attacks
+			Grants immunity to knockback
+			10% increased movement speed
+			10% increased melee damage
+			'''
+		DisplayName: Yoyo Bag Of Tricks
+	}
+
+	WatchfulWings: {
+		Tooltip: ""
+		DisplayName: Watchful Wings
+	}
+
+	TricksterHandbook: {
+		Tooltip:
+			'''
+			10% increased movement speed
+			5% increased melee damage
+			Grants immunity to knockback
+			'''
+		DisplayName: Trickster's Guide to Mischief
+	}
+
+	BloodContract: {
+		Tooltip:
+			'''
+			Increases your max number of minions by 1
+			Slowly regenerates life
+			'''
+		DisplayName: Blood Contract
+	}
+}
+
+Buffs: {
+	CatsPetBuff: {
+		Description: Mods.AberrantMod.Buffs.CatsPetBuff.Description
+		DisplayName: Cats Pet Buff
+	}
+
+	Hellfire: {
+		Description: Mods.AberrantMod.Buffs.Hellfire.Description
+		DisplayName: Hellfire
+	}
+
+	FriendlyHex: {
+		Description: Mods.AberrantMod.Buffs.FriendlyHex.Description
+		DisplayName: Friendly Hex
+	}
+}
